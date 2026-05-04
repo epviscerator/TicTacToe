@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-
+/*
 int TTTinput(char arr[3][3], int pos, char team) {
     // Hard-coded because a tic-tac-toe box always only is a 3x3
     //har arr[3][3];
@@ -39,7 +39,9 @@ int TTTinput(char arr[3][3], int pos, char team) {
         default:
             return -1;
     }
-/*
+
+
+
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             if (!(inputarr[i][j] == 'X') || !(inputarr[i][j] == 'O'))
@@ -49,88 +51,106 @@ int TTTinput(char arr[3][3], int pos, char team) {
     }
 
     inputarr = arr;
-*/
+
     return 1;
 }
+*/
 
-
+//int TTTinput()
 
 int main(void) {
     // Initialize Tic-tac-toe 2D array & other variables
-    int intsquare[3][3];
-    char charsquare[3][3];
+    int intsquare[9];
+    int truesquare[9];
+    //char charsquare[9];
     //int turn = 1;
-    int count = 1;
+    //int count = 1;
     
 
-    // Fill TTT array
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            intsquare[i][j] = count;
-            count++;
-        }
+    // Fill TTT arrays
+    for (int i = 0; i < 9; i++) {
+        intsquare[i] = i;
     }
-
+    
+    for (int i = 0; i < 9; i++) {
+        truesquare[i] = 0; 
+    }
+    
     // Print it to test it/start
-    for (int i = 0; i < 3; i++) {
-        for (int j = 0; j < 3; j++) {
-            printf(" %d", intsquare[i][j]);
-
+    for (int i = 0; i < 9; i++) {
+        if ((i % 3) == 0) {
+            printf(" \n");   
         }
-        printf(" \n");
+        printf(" %d", intsquare[i]);
     }
+
+    printf(" \n");
+    /*
+    for (int i = 0; i < 9; i++) {
+        if ((i % 3) == 0) {
+            printf(" \n");   
+        }
+        printf(" %d", truesquare[i]); 
+    }
+    */
+    //printf(" \n");
 
     // Loop until turn 10 (or 9 if you insist)
     for (int turn = 1; turn < 10; turn++) {
-        // If turn is odd:
-            // P1 (X) turn
+        // If turn is odd (x)
         if ((turn % 2) != 0) {
-            //printf("%d", turn);
             int input;
             // Get input from player
-            printf("Pick your position (Player X): ");
+            printf("\nPick your position (Player X): ");
             scanf("%d", &input);
             // Plug input into method
-            TTTinput(charsquare, input, 'X');
+            truesquare[input] = 1;
             
         }
         
-        // If turn is even
-            // P2 (O) turn
+        // If turn is even (O)
         if ((turn % 2) == 0) {
             int input;
-            //printf("%d", turn);
             // Get input from player
-            printf("Pick your position (Player O): ");
+            printf("\nPick your position (Player O): ");
             scanf("%d", &input);
             // Plug input into method
-            TTTinput(charsquare, input, 'O');
+            truesquare[input] = 2;
             
         }
 
-        // Test print code for char square
-        
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                printf("%d", charsquare[i][j]);
-
+        // Print the Tic Tac Toe square   
+        for (int i = 0; i < 9; i++) {
+            if ((i % 3) == 0) {
+                printf(" \n");   
             }
-            printf(" \n");
-        }
-        
-        // Print the Tic Tac Toe square
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (!(charsquare[i][j] == 'X') || !(charsquare[i][j] == 'O')) {
-                    printf("%d", intsquare[i][j]);
-                } else {
-                    printf("%c", charsquare[i][j]);
+            if (!(truesquare[i] == 1) && !(truesquare[i] == 2)) {
+                printf("%d ", intsquare[i]);
+            } else {
+                if (truesquare[i] == 1) {
+                    printf("X ");
                 }
-                
-            }
-        printf(" \n");
-        }
 
+                if (truesquare[i] == 2) {
+                    printf("O ");
+                }
+            }
+                
+        }
+        
+        printf(" \n");   
+            
+    }
+        
+        
+
+        // Test print code for true square
+        for (int i = 0; i < 9; i++) {
+            if ((i % 3) == 0) {
+                printf(" \n");   
+            }
+            printf("%d ", truesquare[i]);
+        
         // Check if there's 3 in a row
             // PX WINS!!!
     }
