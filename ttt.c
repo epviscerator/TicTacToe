@@ -220,15 +220,6 @@ int main(void) {
         }
       
     }
-        
-        // Test print code for true square
-        for (int i = 0; i < 9; i++) {
-            if ((i % 3) == 0) {
-                printf(" \n");   
-            }
-            printf("%d ", truesquare[i]);
-        
-    }
 
     return 0;
 }
