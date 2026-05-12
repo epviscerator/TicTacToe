@@ -49,14 +49,12 @@ int main(void) {
                     printf("\nInvalid input! Choose a number between 0-8! (Too high!)");
                     printf("\n Number Chosen: %d", input);
                     check_high = 0;
-                    
                 }
                 else if ((input < 0)) {
                     printf("\nInvalid input! Choose a number from 0-8! (Too low!)");
                     printf("\n Number Chosen: %d", input);
                     check_low = 0;
                 }
-
                 if ((truesquare[input] == 1) || (truesquare[input] == 2)) {
                     printf("\nThat spot's taken!");
                     check_taken = 0;
