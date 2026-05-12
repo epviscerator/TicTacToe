@@ -19,10 +19,10 @@
 
 
 char keys[4][4] = {
-  {'1', '2', '3', 'X'},
-  {'4', '5', '6', 'X'},
-  {'7', '8', '9', 'X'},
-  {'X', '0', 'X', 'X'}
+  {'0', '1', '2', 'X'},
+  {'3', '4', '5', 'X'},
+  {'6', '7', '8', 'X'},
+  {'X', 'X', 'X', 'X'}
 };
 // byte rowPins[4] = {14, 27, 26, 25}; // connect to the row pinouts of the keypad
 // byte colPins[4] = {13, 15, 4, 23}; // connect to the column pinouts of the keypad
@@ -114,7 +114,7 @@ void reconnect() {
       if (client.connect("ESP32_TTT_Player1")) {
         Serial.println("FarTEXTURBO");
         client.subscribe("game/status");
-        client.subscribe("game/board");
+        client.subscribe("game/config");
         client.subscribe("tictactoe/move");
         //client.subscribe("VICTORY");
 
